@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusPulse | Never Miss a Placement Again</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#4f46e5",
+                        "primary-container": "#4f46e5",
+                        "on-background": "#131b2e",
+                        "surface": "#faf8ff",
+                        "surface-dim": "#d2d9f4",
+                        "surface-bright": "#faf8ff",
+                        "surface-container": "#eaedff",
+                        "surface-container-low": "#f2f3ff",
+                        "outline": "#777587",
+                        "outline-variant": "#c7c4d8",
+                        "on-surface-variant": "#464555"
+                    },
+                    "borderRadius": {
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2.5rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "stack-lg": "40px",
+                        "container-max": "1280px"
+                    }
+                },
+            }
+        }
+    </script>
+  </head>
+  <body class="bg-surface text-on-background overflow-x-hidden selection:bg-primary/10 selection:text-primary bg-noise bg-blueprint-grid">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
