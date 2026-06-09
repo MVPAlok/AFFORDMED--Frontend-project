@@ -14,6 +14,7 @@ export const useNotifications = () => {
 export const NotificationProvider = ({ children, profile }) => {
     const [notifications, setNotifications] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isPolling, setIsPolling] = useState(false);
     const [error, setError] = useState(null);
     
     // Centralized states for dashboard views
@@ -39,12 +40,28 @@ export const NotificationProvider = ({ children, profile }) => {
     useEffect(() => {
         loadNotifications();
         
-        // Polling every 15 seconds
+        // Polling every 15 seconds to simulate a live system
         const interval = setInterval(() => {
+            setIsPolling(true);
             fetchNotificationsApi(profile?.apiToken)
-                .then(data => setNotifications(data))
-                .catch(err => console.error("Background fetch failed", err));
-        }, 15000);
+                .then(data => {
+                    // Just take 1 random notification from the fetched payload and prepend it
+                    if (data && data.length > 0) {
+                        const newNotice = { ...data[0], id: Math.random().toString(), read: false, timestamp: 'Just now', parsedTime: Date.now() };
+                        setNotifications(prev => {
+                            // Only add if it's not a duplicate title in the top 5
+                            if (prev.slice(0, 5).some(n => n.title === newNotice.title)) return prev;
+                            
+                            // Highlight it visually if possible in UI by setting a special flag, but for now just unshift
+                            return [newNotice, ...prev];
+                        });
+                    }
+                })
+                .catch(err => console.error("Background fetch failed", err))
+                .finally(() => {
+                    setTimeout(() => setIsPolling(false), 1000); // Keep loader visible briefly
+                });
+        }, 20000); // 20 seconds
         
         return () => clearInterval(interval);
     }, [loadNotifications]);
@@ -76,6 +93,7 @@ export const NotificationProvider = ({ children, profile }) => {
     const value = {
         notifications,
         loading,
+        isPolling,
         error,
         searchQuery,
         setSearchQuery,

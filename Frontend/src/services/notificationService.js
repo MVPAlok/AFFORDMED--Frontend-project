@@ -85,7 +85,27 @@ export const fetchNotifications = async (apiToken, retries = 3) => {
                     ...n,
                     parsedTime: new Date(n.rawTimestamp).getTime()
                 }));
-                return computePriorityScores(mappedWithTimes);
+                
+                // --- RANDOMIZATION FOR LIVE FEEL ---
+                // Shuffle the array
+                const shuffled = mappedWithTimes.sort(() => 0.5 - Math.random());
+                // Pick a random number of notifications between 7 and 12
+                const numToPick = Math.floor(Math.random() * 6) + 7;
+                const selected = shuffled.slice(0, numToPick);
+                
+                // Randomize timestamps slightly so they look fresh today
+                const final = selected.map(n => {
+                    const recencyMinutes = Math.floor(Math.random() * 300) + 1; // 1 to 300 minutes ago
+                    const randomTime = Date.now() - (recencyMinutes * 60000);
+                    return {
+                        ...n,
+                        timestamp: recencyMinutes < 60 ? `${recencyMinutes} mins ago` : `${Math.floor(recencyMinutes/60)} hours ago`,
+                        read: Math.random() > 0.6, // Randomly mark 40% as unread
+                        parsedTime: randomTime
+                    };
+                });
+                
+                return computePriorityScores(final);
             }
             
             return []; // empty state

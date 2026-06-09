@@ -6,9 +6,11 @@ import DashboardPriorityInbox from './DashboardPriorityInbox';
 import DashboardAnalytics from './DashboardAnalytics';
 import DashboardSettings from './DashboardSettings';
 import { NotificationProvider, useNotifications } from '../hooks/useNotifications';
+import { useAuth } from '../hooks/useAuth';
 
 function DashboardLayout({ currentRoute, profile, setProfile }) {
-    const { notifications, searchQuery, setSearchQuery } = useNotifications();
+    const { notifications, searchQuery, setSearchQuery, isPolling } = useNotifications();
+    const { logout } = useAuth();
     const unreadCount = notifications.filter(n => !n.read).length;
     const subRoute = currentRoute.replace('#dashboard', '');
 
@@ -107,18 +109,27 @@ function DashboardLayout({ currentRoute, profile, setProfile }) {
                     </nav>
                 </div>
 
-                {/* Profile Widget */}
-                <div className="border-t border-[#F1F5F9] pt-4 flex items-center gap-3 px-2">
-                    <div className="w-9 h-9 rounded-full bg-[#4F46E5]/5 border border-[#4F46E5]/10 flex items-center justify-center font-black text-[#4F46E5] text-xs shadow-inner">
-                        {profile.name.split(' ').map(n => n[0]).join('')}
+                {/* Profile Widget & Logout */}
+                <div className="border-t border-[#F1F5F9] pt-4 flex flex-col gap-3 px-2">
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-full bg-[#4F46E5]/5 border border-[#4F46E5]/10 flex items-center justify-center font-black text-[#4F46E5] text-xs shadow-inner">
+                            {profile.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                            <div className="text-xs font-black text-[#0F172A] truncate">{profile.name}</div>
+                            <div className="text-[9px] text-[#64748B] font-bold truncate">{profile.rollNumber}</div>
+                        </div>
+                        <a href="#dashboard/settings" title="Edit Profile" className="text-[#94A3B8] hover:text-[#4F46E5] transition-colors">
+                            <span className="material-symbols-outlined text-base">settings_accessibility</span>
+                        </a>
                     </div>
-                    <div className="min-w-0 flex-1">
-                        <div className="text-xs font-black text-[#0F172A] truncate">{profile.name}</div>
-                        <div className="text-[9px] text-[#64748B] font-bold truncate">{profile.rollNumber}</div>
-                    </div>
-                    <a href="#dashboard/settings" title="Edit Profile" className="text-[#94A3B8] hover:text-[#4F46E5] transition-colors">
-                        <span className="material-symbols-outlined text-base">settings_accessibility</span>
-                    </a>
+                    <button 
+                        onClick={logout} 
+                        className="flex items-center justify-center gap-2 w-full py-2 rounded-xl text-xs font-bold text-red-600 hover:bg-red-50 transition-colors border border-transparent hover:border-red-100"
+                    >
+                        <span className="material-symbols-outlined text-sm">logout</span>
+                        Sign out
+                    </button>
                 </div>
             </aside>
 
@@ -141,6 +152,12 @@ function DashboardLayout({ currentRoute, profile, setProfile }) {
 
                     {/* Actions and items */}
                     <div className="flex items-center gap-5">
+                        {/* Live Polling Indicator */}
+                        <div className={`flex items-center gap-2 transition-opacity duration-300 ${isPolling ? 'opacity-100' : 'opacity-0'}`}>
+                            <div className="w-3.5 h-3.5 rounded-full border-2 border-primary/20 border-t-primary animate-spin"></div>
+                            <span className="text-[9px] font-black text-primary uppercase tracking-wider hidden sm:block">Syncing Live</span>
+                        </div>
+
                         <span className="text-[10px] text-[#64748B] font-black uppercase tracking-wider hidden sm:inline-block bg-[#F1F5F9] px-2.5 py-1 rounded-md border border-[#E2E8F0]">
                             {formattedDate}
                         </span>
