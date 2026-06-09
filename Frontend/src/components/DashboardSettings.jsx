@@ -21,58 +21,58 @@ export default function DashboardSettings({ profile, setProfile }) {
     };
 
     return (
-        <div className="space-y-10 animate-fadeIn">
+        <div className="space-y-10 animate-fadeIn select-none">
             {/* Header */}
             <div>
-                <h1 className="text-3xl font-black text-slate-900 tracking-tight">System Settings</h1>
-                <p className="text-slate-500 text-sm font-medium mt-1">Configure your student profile details, channels, and prioritization thresholds.</p>
+                <h1 className="text-3xl font-black text-[#0F172A] tracking-tight">System Settings</h1>
+                <p className="text-[#64748B] text-xs font-bold mt-1.5">Configure your student profile variables and custom priority thresholds.</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Profile Settings Card */}
-                <div className="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Academic Profile */}
+                <div className="lg:col-span-2 bg-white p-7 rounded-2xl border border-[#E2E8F0] space-y-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
                     <div>
-                        <h3 className="font-black text-slate-900 text-lg">Academic Profile</h3>
-                        <p className="text-slate-400 text-xs mt-1">These details feed directly into the Placement and Result eligibility filters.</p>
+                        <h3 className="font-black text-[#0F172A] text-base tracking-tight">Academic Profile</h3>
+                        <p className="text-[#94A3B8] text-[10px] font-bold uppercase mt-1">Details used by the placement scraper engine</p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {/* Name */}
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-slate-600 block">Full Name</label>
+                        <div className="space-y-1.5">
+                            <label className="text-[10px] font-black uppercase text-[#64748B] tracking-wider block">Full Name</label>
                             <input 
                                 type="text" 
                                 value={profile.name} 
                                 onChange={(e) => handleProfileChange('name', e.target.value)}
-                                className="w-full bg-slate-50 border border-slate-200 focus:border-primary focus:bg-white rounded-2xl px-4 py-3 text-slate-900 font-medium text-sm focus:outline-none transition-all"
+                                className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#4F46E5] focus:bg-white rounded-xl px-4 py-2.5 text-xs font-bold text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-4 focus:ring-[#4F46E5]/5 transition-all"
                             />
                         </div>
 
                         {/* Email */}
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-slate-600 block">Email Address</label>
+                        <div className="space-y-1.5">
+                            <label className="text-[10px] font-black uppercase text-[#64748B] tracking-wider block">Email Address</label>
                             <input 
                                 type="email" 
                                 value={profile.email} 
                                 onChange={(e) => handleProfileChange('email', e.target.value)}
-                                className="w-full bg-slate-50 border border-slate-200 focus:border-primary focus:bg-white rounded-2xl px-4 py-3 text-slate-900 font-medium text-sm focus:outline-none transition-all"
+                                className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#4F46E5] focus:bg-white rounded-xl px-4 py-2.5 text-xs font-bold text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-4 focus:ring-[#4F46E5]/5 transition-all"
                             />
                         </div>
 
-                        {/* Roll Number */}
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-slate-600 block">Roll Number</label>
+                        {/* Roll */}
+                        <div className="space-y-1.5">
+                            <label className="text-[10px] font-black uppercase text-[#64748B] tracking-wider block">Roll Number</label>
                             <input 
                                 type="text" 
                                 value={profile.rollNumber} 
                                 onChange={(e) => handleProfileChange('rollNumber', e.target.value)}
-                                className="w-full bg-slate-50 border border-slate-200 focus:border-primary focus:bg-white rounded-2xl px-4 py-3 text-slate-900 font-medium text-sm focus:outline-none transition-all"
+                                className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#4F46E5] focus:bg-white rounded-xl px-4 py-2.5 text-xs font-bold text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-4 focus:ring-[#4F46E5]/5 transition-all"
                             />
                         </div>
 
                         {/* CGPA */}
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-slate-600 block">Current CGPA</label>
+                        <div className="space-y-1.5">
+                            <label className="text-[10px] font-black uppercase text-[#64748B] tracking-wider block">Verified CGPA</label>
                             <input 
                                 type="number" 
                                 step="0.01" 
@@ -80,36 +80,36 @@ export default function DashboardSettings({ profile, setProfile }) {
                                 max="10" 
                                 value={profile.cgpa} 
                                 onChange={(e) => handleProfileChange('cgpa', parseFloat(e.target.value) || 0)}
-                                className="w-full bg-slate-50 border border-slate-200 focus:border-primary focus:bg-white rounded-2xl px-4 py-3 text-slate-900 font-medium text-sm focus:outline-none transition-all"
+                                className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#4F46E5] focus:bg-white rounded-xl px-4 py-2.5 text-xs font-bold text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-4 focus:ring-[#4F46E5]/5 transition-all"
                             />
                         </div>
 
-                        {/* Branch */}
-                        <div className="space-y-2 sm:col-span-2">
-                            <label className="text-xs font-bold text-slate-600 block">Academic Department</label>
+                        {/* Department */}
+                        <div className="space-y-1.5 sm:col-span-2">
+                            <label className="text-[10px] font-black uppercase text-[#64748B] tracking-wider block">Academic Department</label>
                             <input 
                                 type="text" 
                                 value={profile.branch} 
                                 onChange={(e) => handleProfileChange('branch', e.target.value)}
-                                className="w-full bg-slate-50 border border-slate-200 focus:border-primary focus:bg-white rounded-2xl px-4 py-3 text-slate-900 font-medium text-sm focus:outline-none transition-all"
+                                className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#4F46E5] focus:bg-white rounded-xl px-4 py-2.5 text-xs font-bold text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-4 focus:ring-[#4F46E5]/5 transition-all"
                             />
                         </div>
                     </div>
                 </div>
 
-                {/* Notification Rules Card */}
-                <div className="space-y-8">
-                    {/* Rules */}
-                    <div className="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+                {/* Right Settings controls */}
+                <div className="space-y-6">
+                    {/* Rules details */}
+                    <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
                         <div>
-                            <h3 className="font-black text-slate-900 text-lg">Ranking Rules</h3>
-                            <p className="text-slate-400 text-xs mt-1">Tune how notifications are ranked or filtered in your feed.</p>
+                            <h3 className="font-black text-[#0F172A] text-sm tracking-tight">Priority Filters</h3>
+                            <p className="text-[#94A3B8] text-[10px] font-bold uppercase mt-1">Configure minimum priority score</p>
                         </div>
 
                         <div className="space-y-4">
-                            <div className="flex justify-between items-center text-xs font-bold text-slate-700">
-                                <span>Priority Threshold</span>
-                                <span className="text-primary font-black">{profile.threshold}</span>
+                            <div className="flex justify-between items-center text-xs font-bold text-[#64748B]">
+                                <span>Score Cutoff</span>
+                                <span className="text-[#4F46E5] font-black">{profile.threshold}</span>
                             </div>
                             <input 
                                 type="range" 
@@ -117,63 +117,63 @@ export default function DashboardSettings({ profile, setProfile }) {
                                 max="95" 
                                 value={profile.threshold} 
                                 onChange={handleThresholdChange}
-                                className="w-full h-1.5 bg-slate-100 rounded-full appearance-none cursor-pointer accent-primary focus:outline-none"
+                                className="w-full h-1 bg-[#F1F5F9] rounded-lg appearance-none cursor-pointer accent-[#4F46E5] focus:outline-none"
                             />
-                            <div className="text-[10px] text-slate-400 leading-relaxed font-bold">
-                                Alerts below Score <span className="text-slate-600">{profile.threshold}</span> will not trigger mobile push alerts or show on your surfaced home feed.
+                            <div className="text-[9px] text-[#94A3B8] font-bold leading-normal">
+                                Alerts below Score <span className="text-[#64748B]">{profile.threshold}</span> will not trigger push alerts or be sorted on home prioritizations.
                             </div>
                         </div>
                     </div>
 
-                    {/* Channels */}
-                    <div className="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+                    {/* API Integration Settings */}
+                    <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
                         <div>
-                            <h3 className="font-black text-slate-900 text-lg">Alert Channels</h3>
-                            <p className="text-slate-400 text-xs mt-1">Configure where priority notifications are dispatched.</p>
+                            <h3 className="font-black text-[#0F172A] text-sm tracking-tight">API Integration</h3>
+                            <p className="text-[#94A3B8] text-[10px] font-bold uppercase mt-1">Configure external campus notification API</p>
+                        </div>
+                        <div className="space-y-3">
+                            <div className="space-y-1.5">
+                                <label className="text-[10px] font-black uppercase text-[#64748B] tracking-wider block">API Authorization Token (Bearer)</label>
+                                <input 
+                                    type="text" 
+                                    value={profile.apiToken || ''} 
+                                    onChange={(e) => handleProfileChange('apiToken', e.target.value)}
+                                    placeholder="Paste Bearer token here..."
+                                    className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#4F46E5] focus:bg-white rounded-xl px-4 py-2.5 text-xs font-bold text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-4 focus:ring-[#4F46E5]/5 transition-all"
+                                />
+                            </div>
+                            <p className="text-[9px] text-[#94A3B8] font-bold leading-normal">
+                                If empty, the dashboard will fall back to local high-fidelity mock data.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Channels toggles */}
+                    <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                        <div>
+                            <h3 className="font-black text-[#0F172A] text-sm tracking-tight">Notification Channels</h3>
+                            <p className="text-[#94A3B8] text-[10px] font-bold uppercase mt-1">Alert dispatch channels</p>
                         </div>
 
                         <div className="space-y-4">
-                            {/* Push */}
-                            <div className="flex items-center justify-between py-2 border-b border-slate-50">
-                                <div className="space-y-0.5">
-                                    <div className="text-sm font-black text-slate-800">Browser Push Alerts</div>
-                                    <div className="text-[10px] text-slate-400 font-semibold">Immediate push notices</div>
+                            {[
+                                { id: 'push', label: 'Push Notifications', sub: 'Immediate browser notices' },
+                                { id: 'email', label: 'Email Digest', sub: 'Daily summary of notices' },
+                                { id: 'slack', label: 'Slack Webhook', sub: 'Integrates stream to slack' }
+                            ].map((c) => (
+                                <div key={c.id} className="flex items-center justify-between py-1.5 border-b border-[#F8FAFC] last:border-b-0">
+                                    <div className="min-w-0">
+                                        <div className="text-xs font-black text-[#0F172A]">{c.label}</div>
+                                        <div className="text-[9px] text-[#94A3B8] font-bold mt-0.5">{c.sub}</div>
+                                    </div>
+                                    <button 
+                                        onClick={() => handleChannelToggle(c.id)}
+                                        className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none flex-shrink-0 ${profile.channels[c.id] ? 'bg-[#4F46E5]' : 'bg-[#E2E8F0]'}`}
+                                    >
+                                        <div className={`w-4 h-4 bg-white rounded-full shadow-sm transform transition-transform duration-200 ${profile.channels[c.id] ? 'translate-x-4' : 'translate-x-0'}`} />
+                                    </button>
                                 </div>
-                                <button 
-                                    onClick={() => handleChannelToggle('push')}
-                                    className={`w-11 h-6 rounded-full p-1 transition-colors duration-200 focus:outline-none ${profile.channels.push ? 'bg-primary' : 'bg-slate-200'}`}
-                                >
-                                    <div className={`w-4 h-4 bg-white rounded-full shadow-sm transform transition-transform duration-200 ${profile.channels.push ? 'translate-x-5' : 'translate-x-0'}`}></div>
-                                </button>
-                            </div>
-
-                            {/* Email */}
-                            <div className="flex items-center justify-between py-2 border-b border-slate-50">
-                                <div className="space-y-0.5">
-                                    <div className="text-sm font-black text-slate-800">Email Digest</div>
-                                    <div className="text-[10px] text-slate-400 font-semibold">Daily summary of urgents</div>
-                                </div>
-                                <button 
-                                    onClick={() => handleChannelToggle('email')}
-                                    className={`w-11 h-6 rounded-full p-1 transition-colors duration-200 focus:outline-none ${profile.channels.email ? 'bg-primary' : 'bg-slate-200'}`}
-                                >
-                                    <div className={`w-4 h-4 bg-white rounded-full shadow-sm transform transition-transform duration-200 ${profile.channels.email ? 'translate-x-5' : 'translate-x-0'}`}></div>
-                                </button>
-                            </div>
-
-                            {/* Slack */}
-                            <div className="flex items-center justify-between py-2">
-                                <div className="space-y-0.5">
-                                    <div className="text-sm font-black text-slate-800">Slack Integration</div>
-                                    <div className="text-[10px] text-slate-400 font-semibold">Post alert streams to channel</div>
-                                </div>
-                                <button 
-                                    onClick={() => handleChannelToggle('slack')}
-                                    className={`w-11 h-6 rounded-full p-1 transition-colors duration-200 focus:outline-none ${profile.channels.slack ? 'bg-primary' : 'bg-slate-200'}`}
-                                >
-                                    <div className={`w-4 h-4 bg-white rounded-full shadow-sm transform transition-transform duration-200 ${profile.channels.slack ? 'translate-x-5' : 'translate-x-0'}`}></div>
-                                </button>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>

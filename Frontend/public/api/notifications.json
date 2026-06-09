@@ -1,0 +1,109 @@
+{
+  "notifications": [
+    {
+      "id": "1",
+      "type": "Placement",
+      "title": "Google SDE Intern Drive 2026",
+      "body": "Google is hiring Software Engineering Interns for Summer 2026. Online Assessment (OA) link is open for eligible candidates. Required CGPA: 8.5+.",
+      "timestamp": "2026-06-09T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "type": "Result",
+      "title": "Semester VIII Final Results Published",
+      "body": "The results for Semester VIII End-Semester examinations have been officially published. Students can view and download their provisional transcript PDF.",
+      "timestamp": "2026-06-09T09:15:00Z"
+    },
+    {
+      "id": "3",
+      "type": "Event",
+      "title": "Microsoft Codess Hackathon 2026",
+      "body": "Microsoft is hosting its flagship annual mentorship and coding event for female developers. Registrations closing soon. Form link attached.",
+      "timestamp": "2026-06-08T16:00:00Z"
+    },
+    {
+      "id": "4",
+      "type": "Placement",
+      "title": "Uber SDE Placement OA Details",
+      "body": "Shortlisted candidates list for the upcoming Uber Coding round. Please confirm your presence by filling out the consent form before 8 PM tonight.",
+      "timestamp": "2026-06-08T14:30:00Z"
+    },
+    {
+      "id": "5",
+      "type": "Placement",
+      "title": "NVIDIA Hardware Intern Interview Schedule",
+      "body": "Technical Interview rounds schedules for hardware interns. Slot selections will lock automatically based on first-come-first-serve.",
+      "timestamp": "2026-06-08T11:00:00Z"
+    },
+    {
+      "id": "6",
+      "type": "Result",
+      "title": "CS 304 Database Lab Re-evaluation",
+      "body": "Grades for CS304 (DBMS Lab) have been updated following student feedback regarding incorrect marking schemas in mid-semester audits.",
+      "timestamp": "2026-06-07T15:45:00Z"
+    },
+    {
+      "id": "7",
+      "type": "Event",
+      "title": "Annual College Tech Fest \"Pulse 2026\"",
+      "body": "Registration is open for various technical events, coding arenas, robotics challenges, and guest speaker series during Pulse 2026.",
+      "timestamp": "2026-06-07T10:00:00Z"
+    },
+    {
+      "id": "8",
+      "type": "Placement",
+      "title": "Atlassian FTE Hiring Pre-Placement Talk",
+      "body": "Mandatory Pre-Placement Talk (PPT) for Atlassian full-time roles. The attendance will be strictly monitored for OA shortlisting.",
+      "timestamp": "2026-06-06T18:20:00Z"
+    },
+    {
+      "id": "9",
+      "type": "Placement",
+      "title": "Amazon AWS Cloud Support Associate",
+      "body": "Amazon is hiring for CSA roles. Requires strong networking fundamentals. Open for B.Tech CS/IT/ECE branches with CGPA 7.5 and above.",
+      "timestamp": "2026-06-06T11:15:00Z"
+    },
+    {
+      "id": "10",
+      "type": "Result",
+      "title": "Mid-Semester Examination Schedule",
+      "body": "The detailed timetable for upcoming mid-semester assessments has been uploaded to the student portal. Exams commence next Monday.",
+      "timestamp": "2026-06-05T09:00:00Z"
+    },
+    {
+      "id": "11",
+      "type": "Event",
+      "title": "AI & Machine Learning Symposium",
+      "body": "Join the university symposium on recent advancements in AI, featuring guest lectures from leading researchers at OpenAI and DeepMind.",
+      "timestamp": "2026-06-04T14:00:00Z"
+    },
+    {
+      "id": "12",
+      "type": "Placement",
+      "title": "Morgan Stanley Technology Analyst",
+      "body": "Morgan Stanley has released the JD for the Summer Technology Analyst program. Application deadline is midnight today.",
+      "timestamp": "2026-06-04T10:00:00Z"
+    },
+    {
+      "id": "13",
+      "type": "Placement",
+      "title": "Goldman Sachs Engineering Campus Hiring",
+      "body": "Aptitude test link has been sent to registered emails. Please check your spam folders if you haven't received it.",
+      "timestamp": "2026-06-03T16:30:00Z"
+    },
+    {
+      "id": "14",
+      "type": "Event",
+      "title": "Robotics Workshop: ROS & Gazebo Sim",
+      "body": "Hands-on bootcamp on Robot Operating System and simulation stacks. Pre-requisite: basic C++ or Python knowledge.",
+      "timestamp": "2026-06-03T11:00:00Z"
+    },
+    {
+      "id": "15",
+      "type": "Result",
+      "title": "TCS Digital Recruitment Results",
+      "body": "Shortlists for Digital roles package offer. Offer letters will be dispatched via NextPortal profiles over this weekend.",
+      "timestamp": "2026-06-02T13:45:00Z"
+    }
+  ]
+}
