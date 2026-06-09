@@ -19,14 +19,14 @@ export function AuthProvider({ children }) {
         setLoading(false);
     }, []);
 
-    const login = async (email, password) => {
+    const login = async (fullName, email, password) => {
         return new Promise((resolve, reject) => {
             // Simulate network delay
             setTimeout(() => {
                 if (email && password) {
                     const mockUser = {
                         email,
-                        name: email.split('@')[0].split('.').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' '),
+                        name: fullName || email.split('@')[0],
                         id: Math.random().toString(36).substr(2, 9)
                     };
                     setUser(mockUser);

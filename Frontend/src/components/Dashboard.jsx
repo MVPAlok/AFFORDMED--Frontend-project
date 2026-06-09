@@ -211,7 +211,13 @@ function DashboardLayout({ currentRoute, profile, setProfile }) {
 }
 
 export default function Dashboard({ currentRoute }) {
-    const [profile, setProfile] = useState(initialProfile);
+    const { user } = useAuth();
+    const [profile, setProfile] = useState({
+        ...initialProfile,
+        name: user?.name || initialProfile.name,
+        email: user?.email || initialProfile.email,
+        rollNumber: user?.id || initialProfile.rollNumber
+    });
 
     return (
         <NotificationProvider profile={profile}>

@@ -3,6 +3,7 @@ import { useAuth } from '../hooks/useAuth';
 
 export default function Login() {
     const { login } = useAuth();
+    const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -12,14 +13,14 @@ export default function Login() {
         e.preventDefault();
         setError('');
         
-        if (!email || !password) {
-            setError('Please enter both email and password.');
+        if (!fullName || !email || !password) {
+            setError('Please enter your full name, email and password.');
             return;
         }
 
         setIsLoading(true);
         try {
-            await login(email, password);
+            await login(fullName, email, password);
             window.location.hash = '#dashboard';
         } catch (err) {
             setError(err.message || 'Failed to login. Please try again.');
@@ -58,6 +59,17 @@ export default function Login() {
                     )}
 
                     <form onSubmit={handleSubmit} className="space-y-5">
+                        <div className="space-y-1.5">
+                            <label className="text-[10px] font-black uppercase text-[#64748B] tracking-wider block">Full Name</label>
+                            <input 
+                                type="text" 
+                                value={fullName}
+                                onChange={(e) => setFullName(e.target.value)}
+                                placeholder="e.g. John Doe"
+                                className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-primary focus:bg-white rounded-xl px-4 py-3 text-sm font-bold text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-4 focus:ring-primary/5 transition-all"
+                            />
+                        </div>
+
                         <div className="space-y-1.5">
                             <label className="text-[10px] font-black uppercase text-[#64748B] tracking-wider block">Student Email</label>
                             <input 
